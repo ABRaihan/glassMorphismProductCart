@@ -54,7 +54,7 @@ section::after{
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    margin: 15px;
+    margin: 30px 15px;
 }
 .card .imgBox{
     display: flex;
@@ -73,7 +73,7 @@ section::after{
     transition: .5s ease-in-out;
 }
 .card:hover .imgBox img{
-    transform: translate(-40px, -40px)scale(1.2);
+    transform: translate(-20px, -20px)scale(1.2);
 }
 .imgBox h2{
     color: white;
@@ -147,4 +147,17 @@ section::after{
     display: inline-block;
     border-radius: 30px;
     text-transform: uppercase;
+}
+@media only screen and (max-width:767px){
+    .container .card .imgBox{
+        transform: translateY(-50px);
+    }
+    .imgBox img{
+        transform: translate(-20px, -20px) rotate(10deg)scale(1.2);
+    }
+    .container .card .content{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-10px);
+    }
 }
