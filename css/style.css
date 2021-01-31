@@ -4,160 +4,130 @@
     box-sizing: border-box;
     font-family: 'Yusei Magic', sans-serif;
 }
-
 section{
-  background-color: #232323;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #232323;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-section::before{
-    position: fixed;
-    top: 0;
-    left: 0;
+section::after{
     content: '';
     position: fixed;
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background-color: #ef3b36;
-    clip-path: circle(70% at 100% -20%);
+    clip-path: circle(65% at 100% -20%);
 }
-section::after{
-    position: fixed;
-    top: 0;
-    left: 0;
+section::before{
     content: '';
+    bottom: 0;
+    left: 0;
     position: fixed;
     width: 100%;
     height: 100%;
     background-color: #47aafa;
-    clip-path: circle(35% at 0% 100%);
+    clip-path: circle(45% at 0% 100%);
 }
-
 .container{
+    width: 80%;
+    margin: 0 auto;
+}
+.product{
     position: relative;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    z-index: 1;
+    z-index: 1111;
 }
-.container .card{
-    background-color: rgba(255,255,255, 0.2);
-    backdrop-filter: blur(15px);
-    padding: 30px 10px;
-    height: 400px;
+.product .card{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(163, 163, 163, 0.2);
+    padding: 20px 10px;
     border-radius: 10px;
-    margin: 30px 15px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    height: 400px;
+    margin: 20px 40px;
 }
-.card .imgBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: .5s ease-in-out;
+.product .card .imgBox{
+    transition: 0.5s;
 }
-.container .card:hover .imgBox{
+.product .card:hover .imgBox{
     transform: translateY(-50px);
 }
 .imgBox img{
-    max-width: 100%;
-    max-height: 100%;
-    transform: rotate(30deg);
-    transition: .5s ease-in-out;
+ transform: rotate(30deg);
+ transition: .5s;
 }
 .card:hover .imgBox img{
-    transform: translate(-20px, -20px)scale(1.2);
+    transform: translate(-30px, -30px) scale(1.2);
 }
-.imgBox h2{
-    color: white;
-}
-.card .content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    top: -30px;
-    transition: .5s ease-in-out;
+.product .card .contentBox{
+    transform: translateY(-30px);
+    transition: 0.5s;
     opacity: 0;
     visibility: hidden;
 }
-.container .card:hover .content{
+.product .card:hover .contentBox{
+    transform: translateY(-45px);
     opacity: 1;
     visibility: visible;
-    transform: translateY(-10px);
 }
-.container .content .size,
-.container .content .color{
+.product .contentBox .size h2,
+.product .contentBox .color h2{
+    color: white;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.product .contentBox .size,
+.product .contentBox .color{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 20px;
+    padding: 5px;
 }
-.container .content .size h3,
-.container .content .color h3{
-    color: white;
-    font-size: 16px;
-    margin-right: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-.container .content .size span{
-    width: 20px;
-    height: 20px;
+.product .contentBox .size span{
     background-color: white;
     margin: 0 5px;
-    border-radius: 4px;
-    font-size: 14px;
-    display: inline-block;
-    line-height: 20px;
-    cursor: pointer;
-    transition: .5s;
-}
-.container .content .size span:hover{
-    background-color: #C01012;
-    color: white;
-}
-.container .content .color span{
     width: 20px;
     height: 20px;
-    background-color: #C01012;
-    margin: 0 4px;
+    border-radius: 4px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.product .contentBox .size span:hover{
+    background-color: #ef3b36;
+    color: white;
+}
+.product .contentBox .color span{
+    background-color: white;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid rgb(39, 39, 39);
+    cursor: pointer;
 }
-.container .content .color span:nth-child(2){
-    background-color: rgb(72, 238, 72);
+.product .contentBox .color span:nth-child(2){
+    background-color: red;
 }
-.container .content .color span:nth-child(3){
-    background-color: rgb(45, 79, 231);
+.product .contentBox .color span:nth-child(3){
+    background-color: rgb(25, 199, 92);
 }
-.container .buyNow{
+.contentBox .buyNow{
     text-decoration: none;
     color: black;
-    background-color: #fff;
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 30px;
     text-transform: uppercase;
-}
-@media only screen and (max-width:767px){
-    .container .card .imgBox{
-        transform: translateY(-50px);
-    }
-    .imgBox img{
-        transform: translate(-20px, -20px) rotate(10deg)scale(1.2);
-    }
-    .container .card .content{
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(-10px);
-    }
+    background-color: #3FA3F5;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
 }
