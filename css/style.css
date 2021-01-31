@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+section{
+  background-color: #232323;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section::before{
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #ef3b36;
+    clip-path: circle(70% at 100% -20%);
+}
+section::after{
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #47aafa;
+    clip-path: circle(35% at 0% 100%);
+}
+
+.container{
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+.container .card{
+    background-color: rgba(255,255,255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 30px 10px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 15px;
+}
+.card .imgBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: .5s ease-in-out;
+}
+.container .card:hover .imgBox{
+    transform: translateY(-50px);
+}
+.imgBox img{
+    max-width: 100%;
+    max-height: 100%;
+    transform: rotate(30deg);
+    transition: .5s ease-in-out;
+}
+.card:hover .imgBox img{
+    transform: translate(-40px, -40px)scale(1.2);
+}
+.imgBox h2{
+    color: white;
+}
+.card .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: -30px;
+    transition: .5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.container .card:hover .content{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
+.container .content .size,
+.container .content .color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+}
+.container .content .size h3,
+.container .content .color h3{
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.container .content .size span{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    margin: 0 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+.container .content .size span:hover{
+    background-color: #C01012;
+    color: white;
+}
+.container .content .color span{
+    width: 20px;
+    height: 20px;
+    background-color: #C01012;
+    margin: 0 4px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.container .content .color span:nth-child(2){
+    background-color: rgb(72, 238, 72);
+}
+.container .content .color span:nth-child(3){
+    background-color: rgb(45, 79, 231);
+}
+.container .buyNow{
+    text-decoration: none;
+    color: black;
+    background-color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
